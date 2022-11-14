@@ -6,8 +6,8 @@ import logo from "./assets/movieku.png";
 import "./components.css";
 function Nav() {
   return (
-    <div>
-      <Navbar fluid={true} rounded={true}>
+    <div className="container">
+      <Navbar fluid={true} rounded={true} className="mx-9">
         <Navbar.Brand href="/">
           <img src={logo} className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
           {/* <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white text-white">

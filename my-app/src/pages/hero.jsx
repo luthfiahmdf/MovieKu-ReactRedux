@@ -10,7 +10,7 @@ function Hero() {
   }, []);
   return (
     <div>
-      <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+      <div className="h-56 sm:h-64 xl:h-screen 2xl:h-96 ">
         <Carousel indicators={false}>
           {entities &&
             entities

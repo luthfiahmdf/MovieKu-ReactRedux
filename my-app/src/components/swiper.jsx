@@ -15,7 +15,7 @@ function ListGenre() {
     dispatch(getMoviesList());
   }, []);
   return (
-    <div className="mt-2">
+    <div className="mt-2 mx-9">
       <Swiper
         slidesPerView={2.5}
         spaceBetween={30}

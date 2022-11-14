@@ -27,17 +27,17 @@ function Details() {
   }, []);
 
   return (
-    <div className="background xl:overflow-x-hidden max-w-screen-0 container">
+    <div className="background container max-w-fit">
       <Nav />
       <div className="content">
-        <div className="top relative">
+        <div className="top relative flex place-items-center">
           <img
             src={`https://image.tmdb.org/t/p/original${entities.backdrop_path}`}
-            className="h-[80vh] object-cover xl:w-screen "
+            className="h-[80vh]  lg:w-[100vw] object-cover "
             alt=""
           />
         </div>
-        <div className="title p-3  w-screen top-96 bg-transparent absolute xl:mx-9">
+        <div className="title p-3  w-screen top-96 bg-transparent absolute xl:mx-9 container">
           <h3 className="title text-yellow-300 font-bold text-2xl">
             {entities.title}
             <Rating>
@@ -47,7 +47,7 @@ function Details() {
               </p>
             </Rating>
           </h3>
-          <p className="text-white xl:mr-20">{entities.overview}</p>
+          <p className="text-white container w-80">{entities.overview}</p>
           <div className="genre">
             {entities.genres &&
               entities.genres.map((item) => {
@@ -61,7 +61,7 @@ function Details() {
               })}
           </div>
         </div>
-        <div className="review_cast mx-9">
+        <div className="review_cast container">
           <h1 className="text-yellow-300 font-bold text-2xl">Cast</h1>
           <Swiper
             slidesPerView={1.3}
@@ -88,11 +88,11 @@ function Details() {
                 spaceBetween: 50,
               },
             }}
-            className="mySwiper overflow-x-hidden"
+            className="mySwiper overflow-x-hidden mx-9"
           >
             {credit &&
               credit.map((item) => (
-                <SwiperSlide className="deta">
+                <SwiperSlide className="deta ">
                   <img
                     src={`https://image.tmdb.org/t/p/original${item.profile_path}`}
                     alt=""
@@ -103,9 +103,9 @@ function Details() {
           </Swiper>
         </div>
       </div>
-      <div className="footer mx-9">
+      {/* <div className="container">
         <Foot />
-      </div>
+      </div> */}
     </div>
   );
 }

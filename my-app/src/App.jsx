@@ -10,14 +10,12 @@ import ListGenre from "./components/swiper";
 
 function App() {
   return (
-    <div className="background">
-      <div className="App mx-9">
-        <Nav />
-        <Hero />
-        {/* <ListGenre /> */}
-        <CardMovies />
-        <Foot />
-      </div>
+    <div className="App background">
+      <Nav />
+      <Hero />
+      {/* <ListGenre /> */}
+      <CardMovies />
+      <Foot />
     </div>
   );
 }
