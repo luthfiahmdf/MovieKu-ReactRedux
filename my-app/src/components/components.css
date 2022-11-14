@@ -1,0 +1,18 @@
+nav {
+  background: transparent !important;
+}
+footer {
+  background: transparent !important;
+}
+.background {
+  background: #101820ff;
+}
+.overlay {
+  position: absolute;
+  top: 20rem;
+
+  text-align: left;
+}
+.title {
+  text-shadow: 1px 1px 2px white, 0 0 1em black, 0 0 0.2em black;
+}
