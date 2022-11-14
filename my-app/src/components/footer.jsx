@@ -17,7 +17,7 @@ function Foot() {
   const navigate = useNavigate();
   return (
     <div className="mt-2 max-lg:w-screen">
-      <Footer container={true} className=" border-2">
+      {/* <Footer container={true} className=" border-2">
         <div className="w-full background">
           <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
             <div>
@@ -59,6 +59,16 @@ function Foot() {
             </div>
           </div>
         </div>
+      </Footer> */}
+
+      <Footer container={true}>
+        <Footer.Copyright href="#" by="Flowbite™" year={2022} />
+        <Footer.LinkGroup>
+          <Footer.Link href="#">About</Footer.Link>
+          <Footer.Link href="#">Privacy Policy</Footer.Link>
+          <Footer.Link href="#">Licensing</Footer.Link>
+          <Footer.Link href="#">Contact</Footer.Link>
+        </Footer.LinkGroup>
       </Footer>
     </div>
   );

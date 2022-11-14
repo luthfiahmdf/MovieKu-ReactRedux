@@ -27,7 +27,7 @@ function Details() {
   }, []);
 
   return (
-    <div className="background xl:overflow-x-hidden max-w-screen-0">
+    <div className="background xl:overflow-x-hidden max-w-screen-0 container">
       <Nav />
       <div className="content">
         <div className="top relative">
