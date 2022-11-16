@@ -16,7 +16,7 @@ function CardMovies() {
     dispatch(getTrending());
   }, []);
   return (
-    <div className=" h-3/4 ">
+    <div className=" h-3/4">
       <h3 className="text-yellow-300 text-2xl font-bold my-7 text-left ml-9">
         Most Popular Movies
       </h3>
@@ -46,7 +46,7 @@ function CardMovies() {
             spaceBetween: 50,
           },
         }}
-        className="mySwiper  xl:w-[95vw] mx-9"
+        className="mySwiper   px-9"
       >
         {entities &&
           entities.map((item) => (

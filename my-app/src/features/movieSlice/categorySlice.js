@@ -4,7 +4,7 @@ import axios from "axios";
 const initialState = {
   entities: [],
 
-  loading: false,
+  load: false,
 };
 
 export const getGenre = createAsyncThunk("genre/getGenre", async (name) => {

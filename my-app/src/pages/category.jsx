@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Dropdown } from "flowbite-react";
+import { Dropdown, Spinner } from "flowbite-react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import Nav from "../components/nav";
@@ -14,7 +14,7 @@ function Category() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { list } = useSelector((state) => state.list);
-  const { entities } = useSelector((state) => state.genre);
+  const { entities, load } = useSelector((state) => state.genre);
   const { name } = useParams();
 
   useEffect(() => {

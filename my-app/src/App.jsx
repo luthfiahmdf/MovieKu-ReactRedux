@@ -6,12 +6,12 @@ import Nav from "./components/nav";
 import Hero from "./pages/hero";
 import CardMovies from "./components/cardMovies";
 import Foot from "./components/footer";
-import ListGenre from "./components/swiper";
+
 import Trending from "./pages/trendingMovies";
 
 function App() {
   return (
-    <div className="App bg-primary-100 xl:max-h-fit max-h-fit">
+    <div className="App bg-primary-100 xl:max-h-fit max-w-fit  ">
       <Nav />
       <Hero />
 
