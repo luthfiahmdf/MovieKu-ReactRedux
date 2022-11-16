@@ -11,12 +11,13 @@ import Trending from "./pages/trendingMovies";
 
 function App() {
   return (
-    <div className="App bg-primary-100 max-h-full">
+    <div className="App bg-primary-100 xl:max-h-fit max-h-fit">
       <Nav />
       <Hero />
-      {/* <ListGenre /> */}
+
       <CardMovies />
-      {/* <Trending /> */}
+      <Trending />
+      {/* <ListGenre /> */}
       <Foot />
     </div>
   );

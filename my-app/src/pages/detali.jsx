@@ -29,7 +29,7 @@ function Detail() {
           alt=""
           className="w-[80%] lg:max-w-[75%] items-center rounded-xl saturate-50 "
         />
-        <div className="description flex justify-center items-center flex-col my-4 ">
+        <div className="descriptions flex justify-center items-center flex-col my-4 ">
           <h3 className="text-center text-yellow-300 font-semibold text-2xl max-w-[70vw]">
             {entities.title}
           </h3>
@@ -41,7 +41,7 @@ function Detail() {
               {entities.genres && entities.genres[1].name}
             </h3>
           </div>
-          <div className="rating">
+          <div>
             <Rating>
               <Rating.Star />{" "}
               <p className="ml-2   text-white ">
