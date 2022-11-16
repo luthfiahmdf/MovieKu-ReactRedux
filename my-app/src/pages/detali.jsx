@@ -58,7 +58,9 @@ function Detail() {
         </div>
 
         <div className="review_cast container">
-          <h1 className="text-yellow-300 font-bold text-2xl">Cast</h1>
+          <h1 className="text-yellow-300 font-bold text-2xl text-center">
+            Cast
+          </h1>
           <Swiper
             slidesPerView={1.3}
             style={{
