@@ -61,15 +61,7 @@ function Nav() {
           >
             Search
           </Navbar.Link>
-          <Navbar.Link
-            href="/navbars"
-            style={{
-              color: "white",
-            }}
-            className="hover:text-yellow-300"
-          >
-            Category
-          </Navbar.Link>
+
           {/* <Navbar.Link href="/navbars">Pricing</Navbar.Link>
           <Navbar.Link href="/navbars">Contact</Navbar.Link> */}
         </Navbar.Collapse>

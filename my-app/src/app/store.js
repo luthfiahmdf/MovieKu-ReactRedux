@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/counterSlice";
 import { castReducer } from "../features/movieSlice/castMovies";
+import { genreReducer } from "../features/movieSlice/categorySlice";
 import { detailReducer } from "../features/movieSlice/detailMovies";
 import { listReducer } from "../features/movieSlice/genreListSlice";
 import { trendingReducer } from "../features/movieSlice/movieSlice";
@@ -13,6 +14,6 @@ export const store = configureStore({
     list: listReducer,
     detail: detailReducer,
     cast: castReducer,
-    tvShow: tvShowReducer,
+    genre: genreReducer,
   },
 });

@@ -19,6 +19,7 @@ import { getMoviesCredit } from "../features/movieSlice/castMovies";
 
 function Details() {
   const dispatch = useDispatch();
+
   const { id } = useParams();
   const { credit } = useSelector((state) => state.cast);
   const { entities } = useSelector((state) => state.detail);

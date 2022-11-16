@@ -36,6 +36,7 @@
   background: radial-gradient(#111 50%, #000 100%);
   overflow: hidden;
   position: relative;
+  border-radius: 0.75rem;
 }
 .movie_card img {
   transition: all 0.3s ease-out;

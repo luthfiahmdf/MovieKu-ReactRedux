@@ -10,6 +10,7 @@ import "./index.css";
 import Details from "./pages/detailMovies";
 import Search from "./pages/search";
 import Detail from "./pages/detali";
+import Category from "./pages/category";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -23,6 +24,7 @@ root.render(
             <Route path="/" element={<App />} />
             <Route path="/:id" element={<Detail />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/category/:name" element={<Category />} />
             {/* <Route path="/search/:name" element={<Search />} />
               <Route path="/genre/:name" element={<Genre />} /> */}
           </Route>

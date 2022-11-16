@@ -17,7 +17,7 @@ function Foot() {
   const navigate = useNavigate();
   return (
     <div className="text-center text-white text-2xl font-bold">
-      Made By Luthfi
+      Ini Footer
       {/* <Footer container={true} className=" border-2">
         <div className="w-full background">
           <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">

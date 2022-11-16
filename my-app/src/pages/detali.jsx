@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Rating } from "flowbite-react";
 import { useParams } from "react-router-dom";
@@ -51,7 +51,7 @@ function Detail() {
             </Rating>
           </div>
 
-          <h2 className="max-w-[80vw] text-white">
+          <h2 className="max-w-[80vw] text-white line-clamp-3 xl:line-clamp-none">
             <span className="text-yellow-300">Overview : </span>{" "}
             {entities.overview}
           </h2>
@@ -111,6 +111,7 @@ function Detail() {
           </Swiper>
         </div>
       </div>
+      <Foot />
     </div>
   );
 }
