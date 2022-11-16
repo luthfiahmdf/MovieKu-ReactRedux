@@ -41,30 +41,44 @@ function Nav() {
             >
               <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
                 <li className="nav-item">
-                  <a
+                  <form action="" class="relative mx-auto w-max">
+                    <input
+                      type="search"
+                      class="peer cursor-pointer relative z-10 h-10 w-10 text-yellow-300 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-yello-300 focus:pl-16 focus:pr-4"
+                    />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-gray-500 px-3.5 peer-focus:border-lime-300 peer-focus:stroke-lime-500"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>
+                  </form>
+                  {/* <a
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                     href="#pablo"
                   >
                     <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i>
-                    <span className="ml-2">Home</span>
-                  </a>
+                    <span className="ml-2 hover:text-yellow-300">Home</span>
+                  </a> */}
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                    href="#pablo"
-                  >
+                  <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
                     <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
-                    <span className="ml-2">Test</span>
+                    <span className="ml-2 hover:text-yellow-300">Test</span>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                    href="#pablo"
-                  >
+                  <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
                     <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i>
-                    <span className="ml-2">Tes</span>
+                    <span className="ml-2 hover:text-yellow-300">Tes</span>
                   </a>
                 </li>
               </ul>
