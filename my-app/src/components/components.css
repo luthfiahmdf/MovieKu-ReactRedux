@@ -1,11 +1,12 @@
 nav {
   background: transparent !important;
 }
+
 footer {
   background: transparent !important;
 }
 .background {
-  background: #101820ff;
+  background-color: #101820ff;
 }
 .overlay {
   position: absolute;

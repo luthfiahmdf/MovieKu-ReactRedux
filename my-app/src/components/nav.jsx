@@ -4,9 +4,11 @@ import { Avatar } from "flowbite-react";
 import { Dropdown } from "flowbite-react";
 import logo from "./assets/movieku.png";
 import "./components.css";
+import { useNavigate } from "react-router-dom";
 function Nav() {
+  const navigate = useNavigate();
   return (
-    <div className="container">
+    <div className="container bg-primary-100">
       <Navbar fluid={true} rounded={true} className="mx-9">
         <Navbar.Brand href="/">
           <img src={logo} className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
@@ -41,13 +43,33 @@ function Nav() {
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse className="nav">
-          <Navbar.Link href="/" active={true}>
+          <Navbar.Link
+            href="/"
+            style={{
+              color: "white",
+            }}
+            className="hover:text-yellow-300"
+          >
             Home
           </Navbar.Link>
-          <Navbar.Link href="/navbars" className="hover:text-yellow-300">
+          <Navbar.Link
+            href="/search"
+            style={{
+              color: "white",
+            }}
+            className="hover:text-yellow-300 text-yellow-300"
+          >
             Search
           </Navbar.Link>
-          <Navbar.Link href="/navbars">Category</Navbar.Link>
+          <Navbar.Link
+            href="/navbars"
+            style={{
+              color: "white",
+            }}
+            className="hover:text-yellow-300"
+          >
+            Category
+          </Navbar.Link>
           {/* <Navbar.Link href="/navbars">Pricing</Navbar.Link>
           <Navbar.Link href="/navbars">Contact</Navbar.Link> */}
         </Navbar.Collapse>

@@ -20,6 +20,8 @@
 }
 .name {
   color: #fff;
+  font-size: 1rem;
+  text-align: center;
   transform: translateY(-20px);
   opacity: 0;
 }

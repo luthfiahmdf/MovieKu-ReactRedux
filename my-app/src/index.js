@@ -8,6 +8,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import Details from "./pages/detailMovies";
+import Search from "./pages/search";
+import Detail from "./pages/detali";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -19,7 +21,8 @@ root.render(
         <Routes>
           <Route>
             <Route path="/" element={<App />} />
-            <Route path="/:id" element={<Details />} />
+            <Route path="/:id" element={<Detail />} />
+            <Route path="/search" element={<Search />} />
             {/* <Route path="/search/:name" element={<Search />} />
               <Route path="/genre/:name" element={<Genre />} /> */}
           </Route>

@@ -1,24 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Button, Rating } from "flowbite-react";
+import { useParams } from "react-router-dom";
 import "../components/components.css";
-import Foot from "../components/footer";
-import Nav from "../components/nav";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import "./pages.css";
-import { Button } from "flowbite-react";
 import avatar from "../components/assets/avatar.png";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import { Rating, Tabs } from "flowbite-react";
-import { getMoviesDetail } from "../features/movieSlice/detailMovies";
+import Nav from "../components/nav";
 import { getMoviesCredit } from "../features/movieSlice/castMovies";
-
-function Details() {
+import { getMoviesDetail } from "../features/movieSlice/detailMovies";
+import Foot from "../components/footer";
+function Detail() {
   const dispatch = useDispatch();
+
   const { id } = useParams();
   const { credit } = useSelector((state) => state.cast);
   const { entities } = useSelector((state) => state.detail);
@@ -26,44 +20,43 @@ function Details() {
     dispatch(getMoviesDetail(id));
     dispatch(getMoviesCredit(id));
   }, []);
-
   return (
-    <div className=" container">
+    <div className=" bg-primary-100">
       <Nav />
-      <div className="content">
-        <div className="top relative flex place-items-center">
-          <img
-            src={`https://image.tmdb.org/t/p/original${entities.backdrop_path}`}
-            className="h-[100vh]  lg:w-[100vw] object-cover "
-            alt=""
-          />
-        </div>
-        <div className="title p-3  w-screen top-96 bg-transparent absolute xl:mx-9 container">
-          <h3 className="title text-yellow-300 font-bold text-2xl">
+      <div className=" flex justify-center items-center flex-col">
+        <img
+          src={`https://image.tmdb.org/t/p/original${entities.backdrop_path}`}
+          alt=""
+          className="w-[80%] lg:max-w-[75%] items-center rounded-xl saturate-50 "
+        />
+        <div className="description flex justify-center items-center flex-col my-4 ">
+          <h3 className="text-center text-yellow-300 font-semibold text-2xl max-w-[70vw]">
             {entities.title}
+          </h3>
+
+          <div className="genre">
+            <h3 className="text-white">
+              <span className="text-yellow-300">Genre :</span>{" "}
+              {entities.genres && entities.genres[0].name},{" "}
+              {entities.genres && entities.genres[1].name}
+            </h3>
+          </div>
+          <div className="rating">
             <Rating>
-              <Rating.Star />
-              <p className="ml-2 text-sm font-medium text-white dark:text-gray-400">
+              <Rating.Star />{" "}
+              <p className="ml-2   text-white ">
+                <span className="text-yellow-300">Rating :</span>{" "}
                 {Math.ceil(entities.vote_average).toFixed()} out of 10
               </p>
             </Rating>
-          </h3>
-          {/* <p className="text-white container  max-w-screen-sm">
-            {entities.overview}
-          </p> */}
-          <div className="genre">
-            {entities.genres &&
-              entities.genres.map((item) => {
-                return (
-                  <ul className="inline-block text-md mb-7 text-white gap-y-5 ">
-                    <Button color="warning" pill={true} className="">
-                      <li>{item.name}</li>
-                    </Button>
-                  </ul>
-                );
-              })}
           </div>
+
+          <h2 className="max-w-[80vw] text-white">
+            <span className="text-yellow-300">Overview : </span>{" "}
+            {entities.overview}
+          </h2>
         </div>
+
         <div className="review_cast container">
           <h1 className="text-yellow-300 font-bold text-2xl">Cast</h1>
           <Swiper
@@ -86,9 +79,9 @@ function Details() {
                 slidesPerView: 4,
                 spaceBetween: 40,
               },
-              1024: {
+              1080: {
                 slidesPerView: 4,
-                spaceBetween: 50,
+                spaceBetween: 30,
               },
             }}
             className="mySwiper  mx-9"
@@ -106,7 +99,7 @@ function Details() {
                     <img
                       src={avatar}
                       alt=""
-                      className="rounded-xl max-w-[80%]"
+                      className="rounded-xl max-w-[80%] "
                     />
                   )}
 
@@ -116,11 +109,8 @@ function Details() {
           </Swiper>
         </div>
       </div>
-      <div className="container">
-        <Foot />
-      </div>
     </div>
   );
 }
 
-export default Details;
+export default Detail;

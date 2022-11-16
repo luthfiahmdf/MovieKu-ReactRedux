@@ -17,8 +17,8 @@ function CardMovies() {
   }, []);
   return (
     <div className=" h-3/4 ">
-      <h3 className="text-yellow-300 text-2xl font-bold">
-        Most Trending Movies
+      <h3 className="text-yellow-300 text-2xl font-bold my-7 text-left ml-9">
+        Most Popular Movies
       </h3>
 
       <Swiper
@@ -54,7 +54,7 @@ function CardMovies() {
               <img
                 src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
                 alt=""
-                className="w-64"
+                className="rounded-xl "
                 onClick={() => navigate(`${item.id}`)}
               />
             </SwiperSlide>
