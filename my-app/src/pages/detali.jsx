@@ -49,8 +49,7 @@ function Detail() {
           <div className="genre">
             <h3 className="text-white">
               <span className="text-yellow-300">Genre :</span>{" "}
-              {entities.genres && entities.genres[0].name},{" "}
-              {entities.genres && entities.genres[1].name}
+              {entities.genres && entities.genres[0].name}
             </h3>
           </div>
           <div>
@@ -134,8 +133,11 @@ function Detail() {
                       className="rounded-xl max-w-[80%] "
                     />
                   )}
-
-                  <p className="name text-white">{item.name}</p>
+                  {item.name !== null ? (
+                    <p className="name text-white">{item.name}</p>
+                  ) : (
+                    <p className="name text-white">Unknow</p>
+                  )}
                 </SwiperSlide>
               ))}
           </Swiper>
@@ -144,24 +146,36 @@ function Detail() {
           <h1 className="text-yellow-300 font-bold text-2xl text-center my-7">
             Reviews
           </h1>
-          {review &&
-            review.slice(0, 3).map((item) => (
-              <div className="content  bg-primary-200 rounded-lg flex flex-col my-5 ">
-                <div className="user flex flex-row  space-x-3 ml-3 p-2">
-                  <Avatar img={avatar} rounded={true} className="" />
-                  {/* <img src={avatar} alt="" className="rounded-full h-9" /> */}
-                  <p className="text-left items-center flex justify-center font-bold text-white">
-                    {item.author}
-                  </p>
 
-                  <Rating className="item-center text-white">
-                    <Rating.Star />
-                    {item.author_details.rating}
-                  </Rating>
-                </div>
-                <p className="font-normal text-white dark:text-gray-400 mx-7 my-3 line-clamp-6 xl:line-clamp-none">
-                  {item.content}
-                </p>
+          {review.results &&
+            review.results.slice(0, 3).map((item) => (
+              <div className="content  bg-primary-200 rounded-lg flex flex-col my-5 ">
+                {review.results.length === 0 ? (
+                  <div className="false">
+                    <p className="font-normal text-white text-center dark:text-gray-400 mx-7 my-3 line-clamp-6 xl:line-clamp-none">
+                      Review Not Found
+                    </p>
+                  </div>
+                ) : (
+                  <div className="true">
+                    <div className="user flex flex-row  space-x-3 ml-3 p-2">
+                      <Avatar img={avatar} rounded={true} className="" />
+                      {/* <img src={avatar} alt="" className="rounded-full h-9" /> */}
+                      <p className="text-left items-center flex justify-center font-bold text-white">
+                        {item.author}
+                      </p>
+
+                      <Rating className="item-center text-white">
+                        <Rating.Star />
+                        {item.author_details.rating}
+                      </Rating>
+                    </div>
+
+                    <p className="font-normal text-white dark:text-gray-400 mx-7 my-3 line-clamp-6 xl:line-clamp-none">
+                      {item.content}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
         </div>

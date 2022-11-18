@@ -14,8 +14,8 @@ export const getMoviesReview = createAsyncThunk(
       const res = await axios.get(
         `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}`
       );
-      console.log(res.data.results);
-      return res.data.results;
+      console.log(res.data);
+      return res.data;
     } catch (error) {
       console.log("error");
     }

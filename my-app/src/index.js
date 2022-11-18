@@ -23,7 +23,7 @@ root.render(
           <Route>
             <Route path="/" element={<App />} />
             <Route path="/:id" element={<Detail />} />
-            <Route path="/search" element={<Search />} />
+            <Route path="/search/:name" element={<Search />} />
             <Route path="/category/:name" element={<Category />} />
             {/* <Route path="/search/:name" element={<Search />} />
               <Route path="/genre/:name" element={<Genre />} /> */}
