@@ -7,7 +7,7 @@ import "swiper/css/bundle";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
-import Details from "./pages/detailMovies";
+
 import Search from "./pages/search";
 import Detail from "./pages/detali";
 import Category from "./pages/category";
