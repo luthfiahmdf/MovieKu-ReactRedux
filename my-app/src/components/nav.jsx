@@ -59,6 +59,7 @@ function Nav() {
   let token = localStorage.getItem("token");
   let profile = localStorage.getItem("user");
   let image = localStorage.getItem("image");
+  let mail = localStorage.getItem("email");
   return (
     <div className="container bg-transparent nav">
       <>
@@ -88,8 +89,8 @@ function Nav() {
               }
               id="example-navbar-danger"
             >
-              <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-                <li className="nav-item">
+              <ul className="flex flex-col lg:flex-row list-none lg:ml-auto space-x-3">
+                <li className="nav-item ">
                   <form
                     action=""
                     class="relative mx-auto w-max flex items-center"
@@ -98,7 +99,7 @@ function Nav() {
                       type="search"
                       onKeyDown={(e) => handleKeyPressed(e)}
                       onChange={(e) => setSearch(e.target.value)}
-                      class="peer cursor-pointer relative z-10 h-10 w-10 text-yellow-300  rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-yello-300 focus:pl-16 focus:pr-4"
+                      class="peer cursor-pointer relative z-10 mt-2 h-10 w-10 text-yellow-300  rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-yello-300 focus:pl-16 focus:pr-4"
                     />
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -126,28 +127,40 @@ function Nav() {
 
                 <li className="nav-item">
                   {token && login && token.length ? (
-                    <div className="user flex flex-wrap">
-                      <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+                    <div className="user mt-2 ">
+                      {/* <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
                         <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
                         <span className="ml-2 hover:text-yellow-300 ">
                           {JSON.parse(profile)}
                         </span>
-                      </a>
-                      <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
-                        <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
-                        <span
-                          className="ml-2 hover:text-yellow-300 "
-                          onClick={handleLogout}
-                        >
-                          Log Out
-                        </span>
-                      </a>
+                      </a> */}
+
+                      <Dropdown
+                        arrowIcon={false}
+                        inline={true}
+                        label={<Avatar alt="User settings" rounded={true} />}
+                      >
+                        <Dropdown.Header>
+                          <span className="block text-sm">
+                            {JSON.parse(profile).toUpperCase()}
+                          </span>
+                          <span className="block truncate text-sm font-medium">
+                            {JSON.parse(mail)}
+                          </span>
+                        </Dropdown.Header>
+                        <Dropdown.Item>Profile</Dropdown.Item>
+
+                        <Dropdown.Divider />
+                        <Dropdown.Item onClick={handleLogout}>
+                          Sign out
+                        </Dropdown.Item>
+                      </Dropdown>
                     </div>
                   ) : (
                     <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
                       <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
                       <span
-                        className="ml-2 hover:text-yellow-300 "
+                        className="ml-2 hover:text-yellow-300 mt-2"
                         onClick={() => setShow(true)}
                       >
                         Login

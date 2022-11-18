@@ -27,6 +27,7 @@ export const logIn = createAsyncThunk(
       localStorage.setItem("user", JSON.stringify(res.user.displayName));
       localStorage.setItem("image", JSON.stringify(res.user.photoURL));
       localStorage.setItem("log", JSON.stringify(res.user));
+      localStorage.setItem("email", JSON.stringify(res.user.email));
       window.location.reload(1);
       // console.log(res);
       return res.user.providerData;
