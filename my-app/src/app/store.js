@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/counterSlice";
+import { loginReducer } from "../features/LoginRegister/loginSlice";
 import { castReducer } from "../features/movieSlice/castMovies";
 import { genreReducer } from "../features/movieSlice/categorySlice";
 import { detailReducer } from "../features/movieSlice/detailMovies";
@@ -21,5 +22,6 @@ export const store = configureStore({
     trailer: trailerReducer,
     review: reviewReducer,
     search: searchReducer,
+    login: loginReducer,
   },
 });
