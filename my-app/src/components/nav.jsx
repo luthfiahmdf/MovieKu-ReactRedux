@@ -11,6 +11,7 @@ import "./components.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logIn } from "../features/LoginRegister/loginSlice";
+import { postLoginGoogle } from "../features/LoginRegister/loginGoogleSlice";
 function Nav() {
   const [user, setUser] = useState();
   const [email, setEmail] = useState();
@@ -32,6 +33,12 @@ function Nav() {
     console.log({ value });
     setShow(false);
     setLogin(true);
+  };
+
+  const isLoginGoogle = async () => {
+    dispatch(postLoginGoogle());
+    setLogin(true);
+    setUser(user);
   };
 
   const handleKeyPressed = (e) => {
@@ -103,7 +110,7 @@ function Nav() {
                     />
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-gray-500 px-3.5 peer-focus:border-lime-300 peer-focus:stroke-lime-500"
+                      class="absolute inset-y-0 my-auto h-8 w-12 border-r items-center border-transparent stroke-gray-500 px-3.5 peer-focus:border-lime-300 peer-focus:stroke-lime-500"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -138,11 +145,17 @@ function Nav() {
                       <Dropdown
                         arrowIcon={false}
                         inline={true}
-                        label={<Avatar alt="User settings" rounded={true} />}
+                        label={
+                          <Avatar
+                            src={JSON.parse(image)}
+                            alt="User settings"
+                            rounded={true}
+                          />
+                        }
                       >
                         <Dropdown.Header>
                           <span className="block text-sm">
-                            {JSON.parse(profile).toUpperCase()}
+                            {JSON.parse(profile)}
                           </span>
                           <span className="block truncate text-sm font-medium">
                             {JSON.parse(mail)}
@@ -160,7 +173,7 @@ function Nav() {
                     <a className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
                       <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
                       <span
-                        className="ml-2 hover:text-yellow-300 mt-2"
+                        className="ml-2 hover:text-yellow-300 mt-2 cursor-pointer"
                         onClick={() => setShow(true)}
                       >
                         Login
@@ -218,12 +231,17 @@ function Nav() {
                           }
                         />
                       </div>
-                      <div className="w-full">
-                        <Button color="warning" onClick={onLogin}>
-                          Log in to your account
-                        </Button>
+                      <div className="w-auto flex flex-row gap-x-3">
+                        <div className="left">
+                          <Button color="warning" onClick={onLogin}>
+                            Log in to your account
+                          </Button>
+                        </div>
+                        <div className="right" onClick={isLoginGoogle}>
+                          <Button>Login With Google</Button>
+                        </div>
                       </div>
-                      <div className="w-full"></div>
+
                       <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
                         Not registered?{" "}
                         <a
