@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
+import Swal from "sweetalert2";
 import { initializeApp } from "firebase/app";
 import {
   GoogleAuthProvider,
@@ -58,6 +58,7 @@ export const postLoginGoogle = createAsyncThunk(
       localStorage.setItem("user", JSON.stringify(user.displayName));
       localStorage.setItem("image", JSON.stringify(user.photoURL));
       localStorage.setItem("log", JSON.stringify(user));
+      Swal.fire("Horeee!", "Login Berhasil!", "success");
 
       // console.log(user);
       return res.providerData;

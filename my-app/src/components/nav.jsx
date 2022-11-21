@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Swal from "sweetalert2";
 import { Avatar } from "flowbite-react";
 import { Dropdown } from "flowbite-react";
 import { Label, TextInput, Button, Modal } from "flowbite-react";
@@ -14,6 +14,11 @@ import { logIn } from "../features/LoginRegister/loginSlice";
 import { postLoginGoogle } from "../features/LoginRegister/loginGoogleSlice";
 import { postRegister } from "../features/LoginRegister/registerSlice";
 function Nav() {
+  window.addEventListener("scroll", () => {
+    document
+      .querySelector("nav")
+      .classList.toggle("window-scroll", window.scrollY > 0);
+  });
   const [user, setUser] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -32,8 +37,12 @@ function Nav() {
 
   const onLogin = async () => {
     dispatch(logIn(value));
-    console.log({ value });
+    Swal.fire("Horeee!", "Login Berhasil!", "success");
+    setTimeout(function () {
+      window.location.reload(1);
+    }, 1500);
     setShow(false);
+
     setLogin(true);
   };
 
@@ -61,8 +70,23 @@ function Nav() {
   }, [login]);
 
   const handleLogout = () => {
-    localStorage.clear();
-    window.location.reload(1);
+    Swal.fire({
+      title: "Do you want to Log Out?",
+      showDenyButton: true,
+      confirmButtonText: "Yes",
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire("Log Out Succes!", "", "success");
+        setTimeout(function () {
+          window.location.reload(1);
+        }, 2000);
+        localStorage.clear();
+      } else if (result.isDenied) {
+        Swal.fire("Gajadi", "", "info");
+      }
+    });
   };
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
@@ -86,10 +110,10 @@ function Nav() {
   let image = localStorage.getItem("image");
   let gmail = localStorage.getItem("email");
   return (
-    <div className="container bg-transparent nav">
+    <div className="container  nav">
       <>
-        <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-pink-500 mb-3">
-          <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+        <nav className="relative flex flex-wrap items-center justify-between px-2 py-3  ">
+          <div className="container px-4 flex flex-wrap items-center justify-between">
             <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
               <a
                 className="text-2xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white cursor-pointer"
@@ -229,7 +253,7 @@ function Nav() {
                         </div>
                         <TextInput
                           id="email"
-                          placeholder="name@company.com"
+                          placeholder="movieku@gmail.com"
                           required={true}
                           style={{ color: "white" }}
                           onChange={(e) =>

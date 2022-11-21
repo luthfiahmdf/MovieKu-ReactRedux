@@ -10,7 +10,7 @@ function Hero() {
   }, []);
   return (
     <div>
-      <div className="h-56 sm:h-64  2xl:h-96 ">
+      <div className="h-screen   xl:h-screen ">
         <Carousel indicators={false}>
           {entities &&
             entities
@@ -19,7 +19,7 @@ function Hero() {
                 <img
                   src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
                   alt="..."
-                  className="saturate-50"
+                  className="saturate-50 h-screen object-cover"
                 />
               ))}
         </Carousel>
