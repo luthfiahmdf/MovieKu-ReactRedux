@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logIn } from "../features/LoginRegister/loginSlice";
 import { postLoginGoogle } from "../features/LoginRegister/loginGoogleSlice";
+import { postRegister } from "../features/LoginRegister/registerSlice";
 function Nav() {
   const [user, setUser] = useState();
   const [email, setEmail] = useState();
@@ -25,6 +26,7 @@ function Nav() {
   });
   const [search, setSearch] = useState([]);
   const [show, setShow] = useState(false);
+  const [showRegist, setShowRegist] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -62,11 +64,27 @@ function Nav() {
     localStorage.clear();
     window.location.reload(1);
   };
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [mail, setMail] = useState("");
+  const [pwd, setPwd] = useState("");
+  const [payload, setPayload] = useState({
+    name: firstname,
+    email: mail,
+    password: pwd,
+  });
+
+  const onSubmitReg = () => {
+    dispatch(postRegister(payload));
+    setShowRegist(false);
+    // registerWithEmailAndPassword(payload.name, payload.email, payload.password);
+    // console.log(payload);
+  };
 
   let token = localStorage.getItem("token");
   let profile = localStorage.getItem("user");
   let image = localStorage.getItem("image");
-  let mail = localStorage.getItem("email");
+  let gmail = localStorage.getItem("email");
   return (
     <div className="container bg-transparent nav">
       <>
@@ -158,10 +176,16 @@ function Nav() {
                             {JSON.parse(profile)}
                           </span>
                           <span className="block truncate text-sm font-medium">
-                            {JSON.parse(mail)}
+                            {JSON.parse(gmail)}
                           </span>
                         </Dropdown.Header>
-                        <Dropdown.Item>Profile</Dropdown.Item>
+                        <Dropdown.Item
+                          onClick={() =>
+                            navigate(`/Dashboard/${JSON.parse(profile)}`)
+                          }
+                        >
+                          Profile
+                        </Dropdown.Item>
 
                         <Dropdown.Divider />
                         <Dropdown.Item onClick={handleLogout}>
@@ -245,11 +269,88 @@ function Nav() {
                       <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
                         Not registered?{" "}
                         <a
-                          href="/modal"
+                          onClick={() => setShowRegist(true)}
                           className="text-blue-700 hover:underline dark:text-blue-500"
                         >
                           Create account
                         </a>
+                      </div>
+                    </div>
+                  </Modal.Body>
+                </Modal>
+
+                {/* Modal Regist */}
+                <Modal
+                  // show={handleShow}
+                  className="modal"
+                  show={showRegist}
+                  size="md"
+                  popup={true}
+                  onClose={() => setShowRegist(false)}
+                >
+                  <Modal.Header className="bg-primary-100" />
+                  <Modal.Body className="modal bg-primary-100 ">
+                    <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8 ">
+                      <h3 className="text-xl font-medium text-white">
+                        Register to our platform
+                      </h3>
+                      <div className="text-white">
+                        <div className="mb-2 block">
+                          <Label
+                            htmlFor="email"
+                            value="Your Name"
+                            style={{ color: "white" }}
+                          />
+                        </div>
+                        <TextInput
+                          id="name"
+                          required={true}
+                          style={{ color: "white" }}
+                          onChange={(e) =>
+                            setPayload({ ...payload, name: e.target.value })
+                          }
+                        />
+                      </div>
+                      <div className="text-white">
+                        <div className="mb-2 block">
+                          <Label
+                            htmlFor="email"
+                            value="Your Email"
+                            style={{ color: "white" }}
+                          />
+                        </div>
+                        <TextInput
+                          id="email"
+                          placeholder="name@company.com"
+                          required={true}
+                          style={{ color: "white" }}
+                          onChange={(e) =>
+                            setPayload({ ...payload, email: e.target.value })
+                          }
+                        />
+                      </div>
+                      <div className="text-white">
+                        <div className="mb-2 block">
+                          <Label
+                            htmlFor="password"
+                            value="Your password"
+                            style={{ color: "white" }}
+                          />
+                        </div>
+                        <TextInput
+                          id="password"
+                          type="password"
+                          required={true}
+                          style={{ color: "white" }}
+                          onChange={(e) =>
+                            setPayload({ ...payload, password: e.target.value })
+                          }
+                        />
+                      </div>
+                      <div className="w-max ">
+                        <Button color="warning" onClick={onSubmitReg}>
+                          Register Your Account
+                        </Button>
                       </div>
                     </div>
                   </Modal.Body>

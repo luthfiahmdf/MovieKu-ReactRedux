@@ -11,6 +11,7 @@ import "./index.css";
 import Search from "./pages/search";
 import Detail from "./pages/detali";
 import Category from "./pages/category";
+import ProfilePage from "./pages/profilePage";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -25,6 +26,7 @@ root.render(
             <Route path="/:id" element={<Detail />} />
             <Route path="/search/:name" element={<Search />} />
             <Route path="/category/:name" element={<Category />} />
+            <Route path="/Dashboard/:name" element={<ProfilePage />} />
             {/* <Route path="/search/:name" element={<Search />} />
               <Route path="/genre/:name" element={<Genre />} /> */}
           </Route>
