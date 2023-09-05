@@ -114,7 +114,7 @@ function Nav() {
       <>
         <nav className="relative flex flex-wrap items-center justify-between px-2 py-3  ">
           <div className="container px-4 flex flex-wrap items-center justify-between">
-            <div className="w-full relative flex justify-between w-full lg:static lg:block lg:justify-start">
+            <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
               <a
                 className="text-2xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white cursor-pointer"
                 onClick={() => navigate("/")}
